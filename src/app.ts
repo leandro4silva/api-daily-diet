@@ -1,7 +1,8 @@
 import fastify from 'fastify'
-import { usersRoutes } from './routes/users'
 import cookie from '@fastify/cookie'
+import { usersRoutes } from './routes/users'
 import { sessionsRoutes } from './routes/sessions'
+import { mealsRoutes } from './routes/meals'
 
 const app = fastify()
 
@@ -12,7 +13,11 @@ app.register(usersRoutes, {
 })
 
 app.register(sessionsRoutes, {
-  prefix: 'sessions',
+  prefix: '/sessions',
+})
+
+app.register(mealsRoutes, {
+  prefix: '/meals',
 })
 
 export { app }
