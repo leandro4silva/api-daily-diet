@@ -1,7 +1,11 @@
 import { FastifyReply, FastifyRequest } from 'fastify'
 
+interface MealsParams {
+  id: string
+}
+
 export async function checkSessionIdExists(
-  request: FastifyRequest,
+  request: FastifyRequest<{ Params: MealsParams }>,
   reply: FastifyReply,
 ) {
   const sessionId = request.cookies.sessionId
